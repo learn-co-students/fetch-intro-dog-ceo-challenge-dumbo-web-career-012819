@@ -29,14 +29,6 @@ document.addEventListener('DOMContentLoaded', function(event){
       }
     })
 
-    // function getAllDogs() {
-    //   const allDogs = [];
-    //   document.querySelectorAll('li').forEach(function(li){
-    //     allDogs.push(li.textContent);
-    //   })
-    //   return allDogs;
-    // }
-
 })
 
 ulTag.addEventListener('click', function(event){
@@ -45,11 +37,13 @@ ulTag.addEventListener('click', function(event){
   }
 })
 
-
 selectTag.onchange = function () {
   const selection = selectTag.value;
 
   const filteredDogs = allDogs.filter(dog => {
+    if (selection === "All Dogs") {
+      return allDogs;
+    }
     return dog[0] === selection;
   })
 
